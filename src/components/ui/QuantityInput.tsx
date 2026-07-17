@@ -10,12 +10,12 @@ interface QuantityInputProps {
 export function QuantityInput({ label, value, onChange, min = 1 }: QuantityInputProps) {
   return (
     <div className="flex flex-col gap-1">
-      {label && <span className="text-sm font-medium text-slate-700">{label}</span>}
+      {label && <span className="text-sm font-medium text-blue-200">{label}</span>}
       <div className="flex items-center gap-1">
         <button
           type="button"
           onClick={() => onChange(Math.max(min, value - 1))}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-blue-700 text-blue-300 hover:bg-blue-900/50"
           aria-label="Disminuir cantidad"
         >
           <Minus size={16} />
@@ -28,12 +28,12 @@ export function QuantityInput({ label, value, onChange, min = 1 }: QuantityInput
             const numero = parseInt(e.target.value, 10);
             onChange(Number.isNaN(numero) ? min : Math.max(min, numero));
           }}
-          className="h-9 w-16 rounded-lg border border-slate-300 text-center text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+          className="h-9 w-16 rounded-lg border border-blue-700 bg-blue-950/50 text-center text-sm text-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <button
           type="button"
           onClick={() => onChange(value + 1)}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-blue-700 text-blue-300 hover:bg-blue-900/50"
           aria-label="Aumentar cantidad"
         >
           <Plus size={16} />

@@ -3,9 +3,9 @@ import type { ReactNode } from 'react';
 type Tono = 'slate' | 'amber' | 'emerald';
 
 const estilosPorTono: Record<Tono, string> = {
-  slate: 'bg-slate-100 text-slate-600',
-  amber: 'bg-amber-100 text-amber-700',
-  emerald: 'bg-emerald-100 text-emerald-700',
+  slate: 'bg-blue-800/60 text-blue-200',
+  amber: 'bg-amber-400/15 text-amber-300',
+  emerald: 'bg-emerald-400/15 text-emerald-300',
 };
 
 export function Badge({ children, tone = 'slate' }: { children: ReactNode; tone?: Tono }) {

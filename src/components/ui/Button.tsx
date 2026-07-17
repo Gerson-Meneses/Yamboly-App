@@ -8,17 +8,17 @@ interface BotonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const estilosPorVariante: Record<Variante, string> = {
-  primary: 'bg-sky-600 text-white hover:bg-sky-700 focus-visible:ring-sky-500',
-  secondary: 'bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 focus-visible:ring-slate-400',
-  danger: 'bg-white text-red-600 border border-red-200 hover:bg-red-50 focus-visible:ring-red-400',
-  success: 'bg-white text-emerald-600 border border-emerald-200 hover:bg-emerald-50 focus-visible:ring-emerald-400',
-  ghost: 'text-slate-500 hover:bg-slate-100 focus-visible:ring-slate-400',
+  primary: 'bg-blue-500 text-white hover:bg-blue-400 focus-visible:ring-blue-300',
+  secondary: 'bg-blue-900/50 text-blue-100 border border-blue-700 hover:bg-blue-800/60 focus-visible:ring-blue-400',
+  danger: 'bg-rose-500/10 text-rose-300 border border-rose-500/40 hover:bg-rose-500/20 focus-visible:ring-rose-400',
+  success: 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/20 focus-visible:ring-emerald-400',
+  ghost: 'text-blue-300 hover:bg-blue-900/40 focus-visible:ring-blue-400',
 };
 
 export function Button({ variant = 'primary', className = '', children, ...resto }: BotonProps) {
   return (
     <button
-      className={`inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${estilosPorVariante[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-offset-blue-950 disabled:cursor-not-allowed disabled:opacity-50 ${estilosPorVariante[variant]} ${className}`}
       {...resto}
     >
       {children}

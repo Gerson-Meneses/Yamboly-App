@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Copy, FileSpreadsheet, FileText, Share2, FileType2 } from 'lucide-react';
+import { FileSpreadsheet, FileText, MessageCircle, Share2, FileType2 } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { exportarExcel } from '../../lib/export/toExcel';
 import { exportarPdf } from '../../lib/export/toPdf';
@@ -15,11 +15,11 @@ export function ExportMenu({ requerimientos }: ExportMenuProps) {
   const [abierto, setAbierto] = useState(false);
   const sinDatos = requerimientos.length === 0;
 
-  const copiarTextoPlano = async () => {
+  const copiarParaWhatsapp = async () => {
     const texto = generarTextoPlano(requerimientos);
     try {
       await navigator.clipboard.writeText(texto);
-      alert('Lista copiada al portapapeles como texto plano.');
+      alert('Lista copiada. Ya puedes pegarla directo en WhatsApp.');
     } catch {
       // Fallback por si el navegador bloquea el portapapeles
       window.prompt('Copia el texto manualmente:', texto);
@@ -30,7 +30,7 @@ export function ExportMenu({ requerimientos }: ExportMenuProps) {
     { label: 'Excel (.xlsx)', icon: FileSpreadsheet, accion: () => exportarExcel(requerimientos) },
     { label: 'PDF', icon: FileType2, accion: () => exportarPdf(requerimientos) },
     { label: 'Word (.docx)', icon: FileText, accion: () => exportarWord(requerimientos) },
-    { label: 'Copiar texto plano', icon: Copy, accion: copiarTextoPlano },
+    { label: 'Copiar para WhatsApp', icon: MessageCircle, accion: copiarParaWhatsapp },
   ];
 
   return (
@@ -43,7 +43,7 @@ export function ExportMenu({ requerimientos }: ExportMenuProps) {
       {abierto && (
         <>
           <div className="fixed inset-0 z-10" onClick={() => setAbierto(false)} />
-          <div className="absolute right-0 z-20 mt-2 w-56 overflow-hidden rounded-lg border border-slate-200 bg-white py-1 shadow-lg">
+          <div className="absolute right-0 z-20 mt-2 w-56 overflow-hidden rounded-lg border border-blue-700 bg-blue-900 py-1 shadow-lg">
             {opciones.map(({ label, icon: Icon, accion }) => (
               <button
                 key={label}
@@ -51,7 +51,7 @@ export function ExportMenu({ requerimientos }: ExportMenuProps) {
                   accion();
                   setAbierto(false);
                 }}
-                className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-slate-700 hover:bg-slate-50"
+                className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-blue-100 hover:bg-blue-800"
               >
                 <Icon size={16} />
                 {label}

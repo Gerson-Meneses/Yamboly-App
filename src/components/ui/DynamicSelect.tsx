@@ -35,20 +35,20 @@ export function DynamicSelect({ label, options, value, onChange, onAddOption, pl
 
   return (
     <div className="flex flex-col gap-1">
-      {label && <span className="text-sm font-medium text-slate-700">{label}</span>}
+      {label && <span className="text-sm font-medium text-blue-200">{label}</span>}
 
       {!mostrarInput ? (
         <div className="flex gap-2">
           <select
             value={value}
             onChange={(e) => onChange(e.target.value)}
-            className="w-full flex-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            className="w-full flex-1 rounded-lg border border-blue-700 bg-blue-950/50 px-3 py-2 text-sm text-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           >
-            <option value="" disabled>
+            <option value="" disabled className="bg-blue-950">
               {placeholder ?? 'Selecciona una opción'}
             </option>
             {options.map((opcion) => (
-              <option key={opcion} value={opcion}>
+              <option key={opcion} value={opcion} className="bg-blue-950">
                 {opcion}
               </option>
             ))}
@@ -57,7 +57,7 @@ export function DynamicSelect({ label, options, value, onChange, onAddOption, pl
             type="button"
             onClick={() => setMostrarInput(true)}
             title="Agregar nueva opción"
-            className="flex shrink-0 items-center justify-center rounded-lg border border-sky-300 px-3 text-sky-600 hover:bg-sky-50"
+            className="flex shrink-0 items-center justify-center rounded-lg border border-blue-400 px-3 text-blue-300 hover:bg-blue-900/50"
           >
             <Plus size={18} />
           </button>
@@ -79,12 +79,12 @@ export function DynamicSelect({ label, options, value, onChange, onAddOption, pl
               }
             }}
             placeholder="Escribe la nueva opción..."
-            className="w-full flex-1 rounded-lg border border-sky-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+            className="w-full flex-1 rounded-lg border border-blue-400 bg-blue-950/50 px-3 py-2 text-sm text-blue-50 placeholder:text-blue-400/50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
           <button
             type="button"
             onClick={confirmarNuevaOpcion}
-            className="shrink-0 rounded-lg bg-sky-600 px-3 text-sm font-medium text-white hover:bg-sky-700"
+            className="shrink-0 rounded-lg bg-blue-500 px-3 text-sm font-medium text-white hover:bg-blue-400"
           >
             Agregar
           </button>
@@ -95,7 +95,7 @@ export function DynamicSelect({ label, options, value, onChange, onAddOption, pl
               setNuevaOpcion('');
             }}
             title="Cancelar"
-            className="flex shrink-0 items-center justify-center rounded-lg border border-slate-300 px-3 text-slate-500 hover:bg-slate-50"
+            className="flex shrink-0 items-center justify-center rounded-lg border border-blue-700 px-3 text-blue-300 hover:bg-blue-900/50"
           >
             <X size={16} />
           </button>

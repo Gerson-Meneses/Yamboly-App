@@ -16,14 +16,12 @@ export function RequerimientoItem({ item, onEditar, onCompletar, onEliminar }: R
   return (
     <div
       className={`flex flex-col gap-3 rounded-lg border p-3 sm:flex-row sm:items-center sm:justify-between ${
-        completado ? 'border-emerald-100 bg-emerald-50/60' : 'border-slate-200 bg-white'
+        completado ? 'border-emerald-500/30 bg-emerald-500/5' : 'border-blue-800 bg-blue-900/30'
       }`}
     >
       <div className="flex flex-col">
-        <span className="font-medium text-slate-800">{item.cliente}</span>
-        <span className="text-sm text-slate-500">
-          {item.material} · Cantidad: {item.cantidad}
-        </span>
+        <span className="font-medium text-blue-50">{item.cliente}</span>
+        <span className="text-sm text-blue-400">Cantidad: {item.cantidad}</span>
       </div>
 
       <div className="flex items-center gap-2">

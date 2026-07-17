@@ -45,7 +45,7 @@ export function RequerimientoForm({
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-row sm:items-end"
+      className="flex flex-col gap-4 rounded-xl border border-blue-800 bg-blue-900/40 p-4 shadow-sm sm:flex-row sm:items-end"
     >
       <div className="flex-1">
         <Input
